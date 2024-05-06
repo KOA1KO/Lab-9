@@ -1,35 +1,26 @@
+<!DOCTYPE html>
 <html>
 <head>
-    <title>Best store!</title>
-    <script type="text/javascript" src="/static/update.js"></script>
-    <link href="static/store.css" rel="stylesheet">
+    <title>Телефонная книга</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
-
 <body>
-    <h1>Furniture store:</h1>
-    <h3>Add new product:</h3>
-    <form>
-        <div>
-            <input type="text" name="prod_name" id="prod_name">
-            <label for="prod_name">Product name</label>
-        </div>
-        <div>
-            <input type="number" name="price" id="price">
-            <label for="price">Price (rub.)</label>
-        </div>
-        <button onClick="addProduct()">Add</button>
+    <h1>Телефонная книга</h1>
+    <form method="POST">
+        <input type="text" name="name" placeholder="Имя" required>
+        <input type="text" name="number" placeholder="Телефон" required>
+        <input type="submit" value="Добавить контакт">
     </form>
-    <ul>
-        {% for product in products_list %}
-        <li>
-            <div>
-                <div>{{ product['prod_name'] }}</div>
-                <div>{{ product['price'] }} rub.</div>
-                <input value="{{product['id']}}" onChange="updateProd(this)" name="in_stock" type="checkbox" {% if product.in_stock %} checked {% endif %}>
-                <label for="in_stock">In stock</label>
+    <form action="/clear" method="POST">
+        <input type="submit" value="Очистить базу данных">
+    </form>
+    <div class="contact">
+        {% for contact in contacts %}
+            <div class="contact">
+                <strong>{{ contact.name }}</strong><br>
+                Телефон: {{ contact.number }}
             </div>
-        </li>
         {% endfor %}
-    </ul>
+    </div>
 </body>
 </html>

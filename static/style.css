@@ -1,0 +1,32 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    background: url('bg.jpg') repeat #fff center center;
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body {
+    background-color: azure;
+    display: block;
+    margin: auto;
+    width: 40%;
+    height: auto;
+    border: 2px solid #000;
+    padding: 20px;
+}
+
+.contact {
+    background: #fff;
+    display: block;
+    margin: auto;
+    border: 2px solid #999;
+}
